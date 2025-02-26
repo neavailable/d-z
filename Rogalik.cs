@@ -11,9 +11,9 @@ class Rogalik
         "[          ###                  #   #       ]",
         "[          ###                 #     #      ]",
         "[          ###                 #######      ]",
-        "[       ###    ###                  ##      ]",
-        "[      #   #  #   #                 ##      ]",
-        "[       ###    ###                          ]",
+        "[       ###   ###                   ##      ]",
+        "[      #   # #   #                  ##      ]",
+        "[       ###   ###                           ]",
         "[                                           ]",
         "[===========================================]",
     };
@@ -23,14 +23,14 @@ class Rogalik
     {
         CreatePlayer();
         
-        string userInput;
+        char userInput;
         do
         {           
             Console.Clear();
             PrintMap();
-            userInput = Console.ReadLine();
+            userInput = Console.ReadKey().KeyChar;
             InputHandling(userInput);
-        } while (userInput != "exit");
+        } while (userInput != 'q');
 
     }
     
@@ -41,17 +41,17 @@ class Rogalik
         map[y_] = new string(row);
     }
         
-    private static void InputHandling(string input)
+    private static void InputHandling(char input)
     {
         int previuosX = x, previuosY = y;
         
-        if (input == "w") --y;
+        if (input == 'w') --y;
         
-        else if (input == "a") --x;
+        else if (input == 'a') --x;
 
-        else if (input == "s") ++y;
+        else if (input == 's') ++y;
         
-        else if (input == "d")++x;
+        else if (input == 'd')++x;
         
         
         if (map[y][x] != ' ') 
